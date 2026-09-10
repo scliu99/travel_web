@@ -344,7 +344,25 @@ body {
     color: #f90;
 }
 
+/* ================================================
+   Step 7：footer 完稿
+   footer 內的資訊用 flexbox 排成一列並置中對齊 —— 這種
+   「一列項目要在同一行、彼此隔開、垂直置中」的需求，用
+   flex 比用 float 簡單很多（不用清 float，也不用算間距）。
+   ================================================ */
+
 #footer {
     clear: both;
-    background-color: greenyellow;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 15px 20px;
+    background-color: #314403;
+    color: #fff;
+}
+
+#footer p {
+    font-size: 12px;
 }
