@@ -32,8 +32,91 @@ body {
    不然 footer 會被浮動的區塊蓋住。
    ================================================ */
 
+/* ================================================
+   Step 3：header 完稿
+   logo 用「文字藏圖片」技巧：HTML 裡是真的文字（給搜尋引擎、
+   螢幕報讀器看），用 text-indent 把文字推到畫面外，再用
+   background-image 顯示真正要看的圖案。
+   nav 選單改用 flexbox 排成一列 —— 對照 step2 巨集版型是用
+   float 做的，這裡元件層級的排列改用 display:flex，
+   不用再算每個 li 要往左浮動、也不用 clear，寫法更直覺。
+   ================================================ */
+
 #header {
-    background-color: darkseagreen;
+    position: relative;
+    height: 150px;
+    background-color: #587907;
+    background-image: url(images/wrapper_bg.jpg);
+    background-repeat: repeat-x;
+}
+
+#logo {
+    display: block;
+    position: absolute;
+    left: 20px;
+    top: 15px;
+    width: 200px;
+    height: 120px;
+    text-indent: -9999px;
+    background-image: url(images/logo.jpg);
+}
+
+#header nav {
+    position: absolute;
+    left: 260px;
+    top: 20px;
+    border-left: 1px #663 solid;
+}
+
+#header nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+#header nav a {
+    display: block;
+    width: 100px;
+    height: 36px;
+    line-height: 36px;
+    text-decoration: none;
+    color: #666633;
+    background-color: #cdcc34;
+    text-align: center;
+    border-top: 1px #663 solid;
+    border-bottom: 1px #663 solid;
+    border-right: 1px #663 solid;
+}
+
+#header nav a:hover {
+    background-color: #eeeeaa;
+}
+
+#header h3 {
+    position: absolute;
+    left: 260px;
+    top: 70px;
+    width: 660px;
+    height: 31px;
+    line-height: 31px;
+    font-size: 12px;
+    font-weight: normal;
+    background-image: url(images/header_bar.gif);
+}
+
+#header img.bookmark {
+    position: absolute;
+    left: 600px;
+    top: 75px;
+    width: 145px;
+    height: 20px;
+}
+
+#header img.search {
+    position: absolute;
+    left: 750px;
+    top: 75px;
+    width: 145px;
+    height: 20px;
 }
 
 #sidebar1 {
