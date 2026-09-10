@@ -16,13 +16,28 @@
     box-sizing: border-box;
 }
 
+/* ================================================
+   Step 8：全頁背景 + 錨點平滑捲動
+   body 加整頁底圖，wrapper 加中間那條綠色底紋；
+   scroll-behavior:smooth 讓點 nav 錨點連結時用滑動的，
+   而不是瞬間跳過去。
+   ================================================ */
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
+    background-image: url(images/body_bg.jpg);
 }
 
 #wrapper {
     width: 980px;
     margin: 0 auto;
+    background-image: url(images/wrapper_bg.jpg);
+    background-repeat: repeat-x;
+    background-color: #587907;
 }
 
 /* ================================================
