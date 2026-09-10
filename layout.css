@@ -25,25 +25,39 @@ body {
     margin: 0 auto;
 }
 
+/* ================================================
+   Step 2：五大區塊 float 巨集版型
+   sidebar1 / content 往左浮動、sidebar2 往右浮動，
+   三個區塊排成一列；footer 用 clear:both 把浮動清掉，
+   不然 footer 會被浮動的區塊蓋住。
+   ================================================ */
+
 #header {
     background-color: darkseagreen;
 }
 
 #sidebar1 {
+    width: 165px;
+    float: left;
     background-color: darkgreen;
     color: #fff;
 }
 
 #content {
+    width: 600px;
+    float: left;
     background-color: darkcyan;
     color: #fff;
 }
 
 #sidebar2 {
+    width: 180px;
+    float: right;
     background-color: darkolivegreen;
     color: #fff;
 }
 
 #footer {
+    clear: both;
     background-color: greenyellow;
 }
