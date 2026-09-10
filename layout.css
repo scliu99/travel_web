@@ -287,11 +287,61 @@ body {
     color: #555;
 }
 
+/* ================================================
+   Step 6：sidebar2（更多好康／國家區域）完稿
+   外層一樣是 float 巨集版型；跟 sidebar1 不同的是，這裡的
+   h2 標題直接用「真文字＋CSS」呈現（字體、顏色），不用
+   圖片藏文字 —— 對照 sidebar1 用 background-image 藏文字
+   的寫法，可以比較兩種技巧：圖片版視覺效果固定、好控制，
+   真文字版可以直接改字、被搜尋引擎與螢幕報讀器讀到。
+   ================================================ */
+
 #sidebar2 {
     width: 180px;
     float: right;
-    background-color: darkolivegreen;
+    background-color: #3e5c0f;
     color: #fff;
+}
+
+#sidebar2 h2 {
+    padding: 15px 15px 0;
+    font-size: 18px;
+}
+
+#sidebar2 p {
+    margin: 10px 15px 0;
+    padding: 0 10px;
+    height: 29px;
+    line-height: 29px;
+    font-weight: bold;
+    text-align: center;
+    background-image: url(images/list_top.gif);
+}
+
+#sidebar2 ul {
+    margin: 0 15px;
+    list-style: none;
+    padding: 10px 0 15px;
+    background-image: url(images/list_bottom.gif);
+    background-repeat: no-repeat;
+    background-position: left bottom;
+}
+
+#sidebar2 li a {
+    display: block;
+    padding: 8px 10px;
+    color: #fff;
+    font-size: 12px;
+    text-decoration: none;
+    border-bottom: #91a06b 1px dashed;
+    background-image: url(images/list_arrow.gif);
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-left: 20px;
+}
+
+#sidebar2 li a:hover {
+    color: #f90;
 }
 
 #footer {
