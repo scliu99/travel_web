@@ -119,11 +119,82 @@ body {
     height: 20px;
 }
 
+/* ================================================
+   Step 4：sidebar1（本月出團）完稿
+   外層版位still是 float（跟 content、sidebar2 並排），
+   但清單「項目本身」內部改用 flexbox 對齊小圖示和文字 ——
+   巨集版型用 float，元件內部對齊用 flex，兩種技術分工。
+   h2 / h3 / h4 沿用「文字藏圖片」技巧（跟 header logo 一樣），
+   之後 step6 的 sidebar2 會改成真文字，可以互相對照。
+   ================================================ */
+
 #sidebar1 {
     width: 165px;
     float: left;
-    background-color: darkgreen;
+    padding: 0 15px;
+    background-color: #486108;
     color: #fff;
+}
+
+#sidebar1 h2 {
+    margin-top: 15px;
+    width: 150px;
+    height: 115px;
+    text-indent: -9999px;
+    background-image: url(images/sidebar1_freedownload.gif);
+}
+
+#sidebar1 p {
+    width: 150px;
+    height: 29px;
+    line-height: 29px;
+    font-weight: bold;
+    text-align: center;
+    background-image: url(images/list_top.gif);
+}
+
+#sidebar1 ul {
+    width: 150px;
+    list-style: none;
+    padding: 10px 0 15px;
+    background-image: url(images/list_bottom.gif);
+    background-repeat: no-repeat;
+    background-position: left bottom;
+}
+
+#sidebar1 li a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 10px;
+    color: #fff;
+    font-size: 12px;
+    text-decoration: none;
+    border-bottom: #91a06b 1px dashed;
+    background-image: url(images/list_arrow.gif);
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-left: 20px;
+}
+
+#sidebar1 li a:hover {
+    color: #f90;
+}
+
+#sidebar1 h3 {
+    margin-top: 10px;
+    width: 150px;
+    height: 140px;
+    text-indent: -9999px;
+    background-image: url(images/sidebar1_sale.gif);
+}
+
+#sidebar1 h4 a {
+    display: block;
+    width: 150px;
+    height: 80px;
+    text-indent: -9999px;
+    background-image: url(images/sidebar1_registration.gif);
 }
 
 #content {
