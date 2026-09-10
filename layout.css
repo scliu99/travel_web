@@ -381,3 +381,30 @@ body {
 #footer p {
     font-size: 12px;
 }
+
+/* ================================================
+   Step 9（final）：RWD 基礎
+   窄螢幕（<= 768px）時：
+   - wrapper 從固定 980px 改成 100% 寬
+   - sidebar1 / content / sidebar2 這三個「float 出來」的欄位
+     改成 float:none、寬度 100%，變成上下堆疊
+   - 熱門行程的 grid 因為本來就是 auto-fit，會自動收成單欄，
+     不用額外寫規則，這就是 grid 天生的響應式優勢
+   - header 裡的 nav／標語／裝飾圖示是用絕對定位＋固定像素
+     排出來的（float 版型的老技巧），這裡先不處理，刻意
+     保留讓大家看到：純 float ＋絕對定位在窄螢幕會直接爆版，
+     這也是後面要學 flexbox／grid 的原因之一
+   ================================================ */
+
+@media (max-width: 768px) {
+    #wrapper {
+        width: 100%;
+    }
+
+    #sidebar1,
+    #content,
+    #sidebar2 {
+        float: none;
+        width: 100%;
+    }
+}
