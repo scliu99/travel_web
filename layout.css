@@ -197,11 +197,94 @@ body {
     background-image: url(images/sidebar1_registration.gif);
 }
 
+/* ================================================
+   Step 5：main content 完稿 + 熱門行程 Grid
+   外層一樣是 float 巨集版型；標題這裡改用「真文字＋CSS」
+   排版（字體、顏色、粗細），不再用圖片藏文字 —— 對照
+   sidebar1 用的圖片標題技巧，兩種寫法互相比較優缺點。
+   新增的「熱門行程」用 CSS Grid：repeat(auto-fit, minmax(...))
+   讓瀏覽器自動決定一列要放幾張卡片，視窗變窄時也會自動
+   減少欄數（不用像 float 版型一樣手動設定斷點）。
+   ================================================ */
+
 #content {
     width: 600px;
     float: left;
-    background-color: darkcyan;
-    color: #fff;
+    padding: 0 10px 30px;
+    color: #333;
+    background-image: url(images/content_bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+#content h2 {
+    margin: 15px 0 10px;
+    font-size: 22px;
+    color: #33691e;
+}
+
+#content p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+#content h3 {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #558b2f;
+}
+
+#content hr {
+    margin-bottom: 10px;
+    border: none;
+    border-top: 1px solid #ccc;
+}
+
+#content h4 {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #558b2f;
+}
+
+#content ul {
+    list-style-image: url(images/content_list_img.gif);
+    padding-left: 20px;
+}
+
+#content li {
+    font-size: 12px;
+    line-height: 20px;
+}
+
+#tours h2 {
+    margin-top: 20px;
+}
+
+.tour-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.tour-card {
+    padding: 10px;
+    background-color: #f1f8e9;
+    border: 1px solid #c5e1a5;
+    border-radius: 4px;
+}
+
+.tour-card h3 {
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #33691e;
+}
+
+.tour-card p {
+    margin-bottom: 0;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #555;
 }
 
 #sidebar2 {
