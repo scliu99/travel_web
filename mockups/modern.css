@@ -1,0 +1,379 @@
+@charset "utf-8";
+
+/* 風格 A：現代簡約
+   大留白、細線條取代陰影、單一強調色、字重對比明確。 */
+
+:root {
+    --bg: #faf7f2;
+    --text: #2b2b2b;
+    --muted: #8a8378;
+    --accent: #a9673b;
+    --line: #e3ddd2;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Helvetica Neue", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 80px 24px;
+}
+
+/* header + nav：flexbox */
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    background-color: var(--bg);
+    z-index: 10;
+}
+
+.brand {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+}
+
+.brand span {
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+}
+
+#header nav ul {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+}
+
+#header nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+
+#header nav a:hover {
+    border-color: var(--accent);
+}
+
+/* hero：position:relative/absolute */
+#hero {
+    position: relative;
+    text-align: center;
+    max-width: 640px;
+    padding-top: 120px;
+    padding-bottom: 100px;
+}
+
+.badge {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    border-radius: 999px;
+    padding: 4px 14px;
+    font-size: 12px;
+}
+
+#hero h1 {
+    font-size: 40px;
+    line-height: 1.4;
+    margin-bottom: 16px;
+}
+
+#hero p {
+    color: var(--muted);
+    margin-bottom: 32px;
+}
+
+.cta {
+    display: inline-block;
+    background-color: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    padding: 14px 36px;
+    border-radius: 4px;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    transition: opacity 0.2s;
+}
+
+.cta:hover {
+    opacity: 0.85;
+}
+
+/* hero 統計列：flexbox */
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    margin-top: 56px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat strong {
+    font-size: 28px;
+    color: var(--accent);
+}
+
+.stat span {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 4px;
+}
+
+/* about：float（文繞圖，最經典的 float 用法） */
+#about::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.about-photo {
+    float: left;
+    width: 220px;
+    height: 220px;
+    margin: 0 40px 20px 0;
+    background-color: #f0e6d8;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 56px;
+}
+
+.about-text h2 {
+    margin-bottom: 16px;
+}
+
+.about-text p {
+    margin-bottom: 12px;
+    color: var(--muted);
+}
+
+/* 我們的堅持：flexbox 三欄 */
+.commitment {
+    display: flex;
+    gap: 32px;
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+}
+
+.commit-item {
+    flex: 1;
+}
+
+.commit-item .icon {
+    font-size: 24px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.commit-item h4 {
+    margin-bottom: 6px;
+    font-size: 15px;
+}
+
+.commit-item p {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* 店內一角：grid 相片牆 */
+#gallery h2 {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 16px;
+}
+
+.gallery-item {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    background-color: #f0e6d8;
+    border-radius: 8px;
+}
+
+/* 菜單分類小標 */
+.menu-category {
+    margin: 40px 0 16px;
+    font-size: 15px;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+}
+
+.menu-category:first-of-type {
+    margin-top: 0;
+}
+
+/* menu：grid */
+#menu h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+}
+
+.menu-card {
+    position: relative;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 28px 24px;
+}
+
+.menu-card .icon {
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.menu-card h3 {
+    margin-bottom: 6px;
+}
+
+.menu-card p {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 16px;
+}
+
+.menu-card .price {
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.menu-card.featured .ribbon {
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    background-color: var(--accent);
+    color: #fff;
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 0 8px 0 8px;
+}
+
+/* 顧客怎麼說：flexbox */
+#reviews h2 {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.review-grid {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.review {
+    flex: 1 1 220px;
+    padding: 24px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+}
+
+.review p {
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.review cite {
+    font-size: 12px;
+    color: var(--muted);
+    font-style: normal;
+}
+
+/* info：flexbox */
+#info {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 40px;
+    background-color: #f2ece2;
+    max-width: none;
+    text-align: center;
+}
+
+.info-item .icon {
+    font-size: 26px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.info-item h3 {
+    margin-bottom: 6px;
+    font-size: 15px;
+}
+
+.info-item p {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* footer：flexbox */
+#contact {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: none;
+    padding: 24px 40px;
+    border-top: 1px solid var(--line);
+    font-size: 13px;
+    color: var(--muted);
+}
+
+#contact a {
+    color: var(--muted);
+    text-decoration: none;
+}
+
+#contact a:hover {
+    color: var(--accent);
+}
+
+.social {
+    display: flex;
+    gap: 20px;
+}

@@ -1,0 +1,453 @@
+@charset "utf-8";
+
+/* 風格 B：活潑卡片風
+   大量圓角、彩色陰影、hover 動畫，卡片感重。 */
+
+:root {
+    --bg: #fff8ef;
+    --text: #3a2a1c;
+    --muted: #8a715c;
+    --orange: #ff7a45;
+    --pink: #ff4d6d;
+    --teal: #06b6a1;
+    --yellow: #ffc93c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Microsoft JhengHei", "PingFang TC", "Comic Sans MS", sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+section {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 80px 24px;
+}
+
+h1, h2, h3 {
+    font-weight: 800;
+}
+
+/* header + nav：flexbox，藥丸狀按鈕 */
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px;
+    position: sticky;
+    top: 0;
+    background-color: var(--bg);
+    z-index: 10;
+}
+
+.brand {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--orange);
+}
+
+.brand span {
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--muted);
+}
+
+#header nav ul {
+    display: flex;
+    gap: 12px;
+    list-style: none;
+}
+
+#header nav a {
+    display: block;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 999px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+#header nav a:hover {
+    background-color: var(--orange);
+    color: #fff;
+}
+
+/* hero：position:relative/absolute 做背景色塊 */
+#hero {
+    position: relative;
+    text-align: center;
+    max-width: 640px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+#hero::before {
+    content: "";
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 480px;
+    height: 480px;
+    background: linear-gradient(135deg, var(--yellow), var(--orange));
+    border-radius: 42% 58% 65% 35% / 45% 40% 60% 55%;
+    z-index: -1;
+    opacity: 0.35;
+}
+
+.badge {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    background-color: var(--teal);
+    color: #fff;
+    border-radius: 999px;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    box-shadow: 0 6px 14px rgba(6, 182, 161, 0.35);
+}
+
+#hero h1 {
+    font-size: 42px;
+    line-height: 1.4;
+    margin-bottom: 16px;
+}
+
+#hero p {
+    color: var(--muted);
+    margin-bottom: 32px;
+    font-weight: 700;
+}
+
+.cta {
+    display: inline-block;
+    background-color: var(--pink);
+    color: #fff;
+    text-decoration: none;
+    padding: 16px 40px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 800;
+    box-shadow: 0 10px 20px rgba(255, 77, 109, 0.4);
+    transition: transform 0.2s;
+}
+
+.cta:hover {
+    transform: translateY(-3px) scale(1.03);
+}
+
+/* hero 統計列：flexbox */
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 56px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 14px 24px;
+    box-shadow: 0 10px 20px rgba(58, 42, 28, 0.08);
+}
+
+.stat strong {
+    font-size: 26px;
+    color: var(--pink);
+}
+
+.stat span {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 4px;
+    font-weight: 700;
+}
+
+/* about：float，圓形照片框 + 微傾斜 */
+#about::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.about-photo {
+    float: left;
+    width: 220px;
+    height: 220px;
+    margin: 0 40px 20px 0;
+    background: linear-gradient(135deg, var(--teal), #8fe3d6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 64px;
+    transform: rotate(-4deg);
+    box-shadow: 0 16px 30px rgba(6, 182, 161, 0.3);
+}
+
+.about-text h2 {
+    margin-bottom: 16px;
+    color: var(--orange);
+}
+
+.about-text p {
+    margin-bottom: 12px;
+    color: var(--muted);
+    font-weight: 500;
+}
+
+/* 我們的堅持：flexbox 三欄彩色卡片 */
+.commitment {
+    display: flex;
+    gap: 24px;
+    margin-top: 56px;
+}
+
+.commit-item {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 24px 20px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(58, 42, 28, 0.08);
+}
+
+.commit-item .icon {
+    font-size: 28px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.commit-item h4 {
+    margin-bottom: 6px;
+    color: var(--teal);
+}
+
+.commit-item p {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* 店內一角：grid 圓角相片牆 */
+#gallery h2 {
+    text-align: center;
+    margin-bottom: 32px;
+    color: var(--orange);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 18px;
+}
+
+.gallery-item {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 34px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--yellow), var(--teal));
+    box-shadow: 0 10px 20px rgba(58, 42, 28, 0.1);
+}
+
+.gallery-item:nth-child(2n) {
+    background: linear-gradient(135deg, var(--orange), var(--pink));
+}
+
+/* 菜單分類小標 */
+.menu-category {
+    margin: 44px 0 20px;
+    font-size: 16px;
+    color: var(--pink);
+}
+
+.menu-category:first-of-type {
+    margin-top: 0;
+}
+
+/* menu：grid，彩色卡片 + hover 上浮 */
+#menu h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--orange);
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 28px;
+}
+
+.menu-card {
+    position: relative;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 30px 24px;
+    box-shadow: 0 12px 24px rgba(58, 42, 28, 0.08);
+    border-top: 6px solid var(--teal);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.menu-grid .menu-card:nth-child(2) { border-top-color: var(--pink); }
+.menu-grid .menu-card:nth-child(3) { border-top-color: var(--yellow); }
+.menu-grid .menu-card:nth-child(4) { border-top-color: var(--orange); }
+.menu-grid .menu-card:nth-child(5) { border-top-color: var(--teal); }
+.menu-grid .menu-card:nth-child(6) { border-top-color: var(--pink); }
+
+.menu-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 32px rgba(58, 42, 28, 0.16);
+}
+
+.menu-card .icon {
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+.menu-card h3 {
+    margin-bottom: 6px;
+}
+
+.menu-card p {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 16px;
+}
+
+.menu-card .price {
+    display: inline-block;
+    font-weight: 800;
+    color: #fff;
+    background-color: var(--orange);
+    padding: 4px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+}
+
+.menu-card.featured .ribbon {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background-color: var(--pink);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 800;
+    padding: 6px 14px;
+    border-radius: 999px;
+    transform: rotate(6deg);
+    box-shadow: 0 8px 14px rgba(255, 77, 109, 0.4);
+}
+
+/* 顧客怎麼說：flexbox 彩色留言卡 */
+#reviews h2 {
+    text-align: center;
+    margin-bottom: 32px;
+    color: var(--teal);
+}
+
+.review-grid {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.review {
+    flex: 1 1 220px;
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 26px;
+    box-shadow: 0 10px 20px rgba(58, 42, 28, 0.08);
+    border-left: 6px solid var(--yellow);
+}
+
+.review p {
+    font-size: 14px;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.review cite {
+    font-size: 12px;
+    color: var(--muted);
+    font-style: normal;
+}
+
+/* info：flexbox 彩色面板 */
+#info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    max-width: none;
+}
+
+.info-item {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 32px 28px;
+    text-align: center;
+    box-shadow: 0 12px 24px rgba(58, 42, 28, 0.08);
+    flex: 1 1 220px;
+}
+
+.info-item .icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background-color: var(--yellow);
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.info-item h3 {
+    margin-bottom: 6px;
+    color: var(--orange);
+}
+
+.info-item p {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* footer：flexbox */
+#contact {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: none;
+    padding: 24px 40px;
+    background-color: var(--orange);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+#contact a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.social {
+    display: flex;
+    gap: 20px;
+}
